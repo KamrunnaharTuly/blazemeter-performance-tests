@@ -1,0 +1,14 @@
+name: BlazeMeter Connection Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call BlazeMeter API
+        run: |
+          curl https://a.blazemeter.com/api/v4/user \
+          --user "${{ secrets.BLAZEMETER_API_KEY_ID }}:${{ secrets.BLAZEMETER_API_KEY_SECRET }}"
